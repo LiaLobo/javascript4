@@ -1,4 +1,4 @@
-# arrays-reprograma
+ # arrays-reprograma
 
 [slides](https://docs.google.com/presentation/d/1yMUIlL9dZe6sQH7LyZ4JFyf3pR0CdPN8igkvu0mGY7E/edit?usp=sharing)
 
@@ -32,7 +32,7 @@ const nomesNoRole =['Adriana',
 'Lia',
 'Marcela',
 'Monique',
-'Priscilla Roiz Garcia',
+'Pri Roiz Garcia',
 'Priscilla Soares Alves',
 'Raissa',
 'Raquel',

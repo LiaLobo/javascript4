@@ -84,17 +84,17 @@ let juntaComida = comidas.reduce((esq, dir) => {
 })
 console.log(juntaComida)
 
-let somaNumero = numeros.reduce((esq, dir) => {
+let somaNumero = nums.reduce((esq, dir) => {
     return esq + dir
 })
 console.log(somaNumero) 
 
-console.log(numeros)
-console.log(numeros.find(numero => numero === 1))
-console.log(numeros.findIndex(numero => numero === 1))
+console.log(nums)
+console.log(nums.find(numero => numero === 1))
+console.log(nums.findIndex(numero => numero === 1))
 
-console.log(numeros.find(numero => numero === -1))
-console.log(numeros.findIndex(numero => numero === 9))
+console.log(nums.find(numero => numero === -1))
+console.log(nums.findIndex(numero => numero === 9))
 
 menorQueDez = (algumValor) => algumValor < 10
-console.log(numeros.every(numero => menorQueDez(numero)))
+console.log(nums.every(numero => menorQueDez(numero)))
