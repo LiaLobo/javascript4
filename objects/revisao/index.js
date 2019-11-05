@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-//Essa é uma função construtora. Criamos um modelo com alguns parâmetros e depois criamos uma variável com uma nova Crianca no caso e adicionamos os valores que queremos.
-    //A função construtora deve ter o nome dela começando com letra maiúscula     
-function Crianca(nome, idade, altura) {
-=======
 const crianca = new Object
 console.log(typeof crianca)
 crianca.nome = "Elaine"
@@ -45,8 +40,9 @@ console.log(crianca2)
 delete crianca2.endereco
 //console.log(crianca2.endereco.logradouro)
 
+//Essa é uma função construtora. Criamos um modelo com alguns parâmetros e depois criamos uma variável com uma nova Crianca no caso e adicionamos os valores que queremos.
+    //A função construtora deve ter o nome dela começando com letra maiúscula 
 function Crianca(nome, idade, altura){
->>>>>>> upstream/aula2
     this.nome = nome
     this.idade = idade
     this.altura = altura
@@ -55,15 +51,6 @@ function Crianca(nome, idade, altura){
     }
 }
 
-<<<<<<< HEAD
-const c1 = new Crianca('Bete', 6, 1.1)
-console.log(`${c1.nome} tem ${c1.altura} e ${c1.podeBrincar() ? 'podebrincar' : 'não pode brincar'}`)
-const c2 = new Crianca('Carlos', 4, 0.8)
-console.log(`${c2.nome} tem ${c2.altura} e ${c2.podeBrincar() ? 'podebrincar' : 'não pode brincar'}`)
-
-//cria uma função construtora com nome, sobrenome, matéria
-function Professor(nome, sobrenome, materia) {
-=======
 const c1 = new Crianca("Bete", 6, 1.1)
 console.log(`${c1.nome} tem ${c1.altura} e ${c1.podeBrincar() ? 'pode brincar' : 'não pode brincar'}`)
 c1.especifico = true
@@ -194,29 +181,11 @@ function Pessoa(nome, idade, corFavorita){
 
 //nome, sobrenome, materia
 function Professor(nome, sobrenome, materia){
->>>>>>> upstream/aula2
     this.nome = nome
     this.sobrenome = sobrenome
     this.materia = materia
 }
 
-<<<<<<< HEAD
-Professor.prototype.dzMateria = function() {
-    return `A matéria é ${this.materia}`
-}
-
-const novoProf = new Professor('Amélia', 'Fernandes', 'História')
-console.log(novoProf.dzMateria())
-
-const maisUmProf = new Professor('Lydia', 'Rodrigues', 'JS 4')
-console.log(maisUmProf.dzMateria())
-
-maisUmProf.dzMateria = function() {
-    return `A professora ${this.nome} da aula de ${this.materia}`
-}
-
-console.log(maisUmProf.dzMateria())
-=======
 Professor.prototype.dizMateria = function(){
     return `A materia é: ${this.materia}`
 }
@@ -260,4 +229,3 @@ novaFilha.profissao = "Atriz"
 console.log(novaFilha)
 const novaMae = new Mae
 console.log(novaMae)
->>>>>>> upstream/aula2
