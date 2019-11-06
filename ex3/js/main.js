@@ -26,24 +26,25 @@ let resultados = [
     }
 ];
 
-class Cards {
-    constructor(resultado) {
-        this.resultado = resultado
-    }
-    render() {
-        const card = `
-        <div class='card'>
-            <img src='${this.resultado.imagem}' class='imagem'/>
-            <h2> ${this.resultado.titulo} </h2>
-            <p class='ingredientes'> ${this.resultado.ingredientes} </p>
-        </div>
-    `
-    document.querySelector('.cards').insertAdjacentHTML('beforeend', card)
-    }
-}
 
-// const card1 = new Cards(resultados[0])
+const renderNavbar = new Navbar
 
-resultados.map((resultado) => {
-    new Cards(resultado).render()
+renderNavbar.render()
+
+document.querySelector('.cards').innerHTML = 
+resultados.map(resultado => {
+    return new Card(resultado).render()
+}).join("")
+
+document.querySelector('.button__search').addEventListener('click', function() { 
+    let inputValue = document.querySelector('.input__search').value.toUpperCase()
+    let achados = resultados.filter(resultado => {
+        return resultado.titulo.toUpperCase().includes(inputValue) || resultado.ingredientes.toUpperCase().includes(inputValue) 
+    })
+    document.querySelector('.cards').innerHTML = 
+    achados.map(encontrado => {
+        return new Card(encontrado).render()
+    }).join("")
+
 })
+
