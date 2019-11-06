@@ -31,30 +31,58 @@ const renderNavbar = new Navbar
 
 renderNavbar.render()
 
-document.querySelector('.cards').innerHTML = 
-resultados.map(receita => {
-    return new Card(receita).render()
-}).join("")
+//FORMA MAIS ENXUTA DE FAZER
+    const sectionCards = document.querySelector('.cards')
 
+//Como foi feito esse código algumas vezes podemos criar uma função para resumir e organizar o raciocínio 
+    const carregaCards = (array) => {
+        sectionCards.innerHTML = array.map(objeto => {
+            return new Card(objeto).render()
+        }).join('')
+    }
+
+    carregaCards(resultados)
+
+    const limpar = (value) => {
+        if (!value) {
+            carregaCards(resultados)
+        }
+    }
+
+    document.querySelector('.button__search').addEventListener('click', function(){
+        let inputValue = document.querySelector('.input__search').value.toUpperCase()
+        let achados = resultados.filter(receita => {
+            // o meu inputValue está incluso em alguma parte do título OU dos ingredientes.
+            return receita.titulo.toUpperCase().includes(inputValue) || receita.ingredientes.toUpperCase().includes(inputValue)
+    })
+
+    carregaCards(achados)
+//
+
+// document.querySelector('.cards').innerHTML = 
 // resultados.map(receita => {
-//     document.querySelector('.cards').insertAdjacentHTML('beforeend', new Card(receita).render())
-// })
+//     return new Card(receita).render()
+// }).join("")
 
-// const searchPorTecla = (value) => {
-//     resultados.filter(receita => {
-//        console.log(receita.titulo.includes(value))
-//     })
+
+// const limpar = (value) => {
+//     if (!value) {
+//         console.log('Não tem valor')
+//         document.querySelector('.cards').innerHTML = resultados.map(receita => {
+//             return new Card(receita).render()
+//         }).join('')
+//     }
 // }
 
-document.querySelector('.button__search').addEventListener('click', function(){
-    let inputValue = document.querySelector('.input__search').value.toUpperCase()
-    let achados = resultados.filter(receita => {
-        // o meu inputValue está incluso em alguma parte do título OU dos ingredientes.
-        return receita.titulo.toUpperCase().includes(inputValue) || receita.ingredientes.toUpperCase().includes(inputValue)
-    })
-    document.querySelector('.cards').innerHTML = 
-    achados.map(encontrado => {
-        return new Card(encontrado).render()
-    }).join("")
-})
 
+// document.querySelector('.button__search').addEventListener('click', function(){
+//     let inputValue = document.querySelector('.input__search').value.toUpperCase()
+//     let achados = resultados.filter(receita => {
+//         // o meu inputValue está incluso em alguma parte do título OU dos ingredientes.
+//         return receita.titulo.toUpperCase().includes(inputValue) || receita.ingredientes.toUpperCase().includes(inputValue)
+//     })
+//     document.querySelector('.cards').innerHTML = 
+//     achados.map(encontrado => {
+//         return new Card(encontrado).render()
+//     }).join("")
+// })
