@@ -26,23 +26,24 @@ let resultados = [
     }
 ];
 
+class Cards {
+    constructor(resultado) {
+        this.resultado = resultado
+    }
+    render() {
+        const card = `
+        <div class='card'>
+            <img src='${this.resultado.imagem}' class='imagem'/>
+            <h2> ${this.resultado.titulo} </h2>
+            <p class='ingredientes'> ${this.resultado.ingredientes} </p>
+        </div>
+    `
+    document.querySelector('.cards').insertAdjacentHTML('beforeend', card)
+    }
+}
+
+// const card1 = new Cards(resultados[0])
+
 resultados.map((resultado) => {
     new Cards(resultado).render()
-})
-
-
-document.querySelector('.button__search').addEventListener('click', function() {
-    console.log("EAE")
-    let inputValue = document.querySelector('.input__search').value.toUpperCase()
-    let achados = resultados.filter(resultado => {
-        return resultado.titulo.toUpperCase().includes(inputValue) || resultado.ingredientes.toUpperCase().includes(inputValue) 
-    })
-    console.log(achados)
-    if(achados.length > 0) {
-            achados.map(resultado => {
-                 new Cards(resultado).render()
-            })
-
-    }
-
 })
