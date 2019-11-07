@@ -15,9 +15,9 @@ function criaTexto(texto) {
       }
         reject('não consigo ensaboar')
     })
-  }
-  
-  function enxaguar() {
+}
+
+const enxaguar = () => {
     return new Promise((resolve, reject) => {
       if (agua) {
         setTimeout(() => {
